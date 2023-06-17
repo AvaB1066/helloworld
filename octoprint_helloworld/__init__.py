@@ -33,9 +33,9 @@ class HelloWorldPlugin(octoprint.plugin.StartupPlugin,
 
 	
 while True: # Run forever
-    GPIO.output(8, GPIO.HIGH) # Turn on
+    GPIO.output(26, GPIO.HIGH) # Turn on
     sleep(1)                  # Sleep for 1 second
-    GPIO.output(8, GPIO.LOW)  # Turn off
+    GPIO.output(26, GPIO.LOW)  # Turn off
     sleep(1) 
 	
 	
