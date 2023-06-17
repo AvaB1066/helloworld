@@ -13,6 +13,15 @@ class HelloWorldPlugin(octoprint.plugin.StartupPlugin,
                        octoprint.plugin.TemplatePlugin,
                        octoprint.plugin.SettingsPlugin,
                        octoprint.plugin.AssetPlugin):
+	
+	
+	def _initgpio(self):
+		GPIO.setmode(GPIO.BCM)
+		GPIO.setwarnings(False)
+		GPIO.setup(26, GPIO.OUT)
+		self._gpioup = 1
+		
+		
 	def on_after_startup(self):
 		self._logger.info("Hello World! (more: %s)" % self._settings.get(["url"]))
 
