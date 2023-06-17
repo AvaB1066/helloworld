@@ -2,29 +2,22 @@
 from __future__ import absolute_import
 
 import octoprint.plugin
-import RPi.GPIO as GPIO
-from flask import jsonify, request
-
-
-GPIO.setup(8, GPIO.OUT, initial=GPIO.LOW)   
 
 class HelloWorldPlugin(octoprint.plugin.StartupPlugin,
-						  octoprint.plugin.ShutdownPlugin,
-						  octoprint.plugin.EventHandlerPlugin,
-						  octoprint.plugin.TemplatePlugin,
-						  octoprint.plugin.SettingsPlugin,
-						  octoprint.plugin.AssetPlugin,
-						  octoprint.plugin.BlueprintPlugin):
-while True: # Run forever
-    GPIO.output(26, GPIO.HIGH) # Turn on
-    sleep(3)                  # Sleep for 1 second
-    GPIO.output(26, GPIO.LOW)  # Turn off
-    sleep(3)    
-	
+                       octoprint.plugin.TemplatePlugin,
+                       octoprint.plugin.SettingsPlugin,
+                       octoprint.plugin.AssetPlugin):
+	def on_after_startup(self):
+		self._logger.info("Hello World! (more: %s)" % self._settings.get(["url"]))
 
+	def get_settings_defaults(self):
+		return dict(url="https://en.wikipedia.org/wiki/Hello_world")
 
-
-
+	def get_template_configs(self):
+		return [
+			dict(type="navbar", custom_bindings=False),
+			dict(type="settings", custom_bindings=False)
+		]
 
 	def get_assets(self):
 		return dict(
