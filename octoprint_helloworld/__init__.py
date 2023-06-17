@@ -32,13 +32,7 @@ class HelloWorldPlugin(octoprint.plugin.StartupPlugin,
 		)
 
 	
-while True: # Run forever
-    GPIO.output(26, GPIO.HIGH) # Turn on
-    sleep(1)                  # Sleep for 1 second
-    GPIO.output(26, GPIO.LOW)  # Turn off
-    sleep(1) 
-	
-	
+
 	
 __plugin_name__ = "Hello World"
 __plugin_pythoncompat__ = ">=2.7,<4"
