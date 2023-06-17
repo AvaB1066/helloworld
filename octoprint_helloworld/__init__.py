@@ -36,7 +36,7 @@ class HelloWorldPlugin(octoprint.plugin.StartupPlugin,
 		
 		
 def readtemperature(self, comm_instance, parsed_temperatures, *args, **kwargs):
-current_temp = parsed_temperatures['B'][0]
+current_temp = parsed_temperatures['T'][0]
 
 while True:
 	if current_temp >=50:
