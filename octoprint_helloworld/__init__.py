@@ -20,14 +20,13 @@ class HelloWorldPlugin(octoprint.plugin.StartupPlugin,
 		GPIO.setwarnings(False)
 		GPIO.setup(26, GPIO.OUT)
 		self._gpioup = 1
-		GPIO.output(26, False)
+	
 		
 		
 	def on_after_startup(self):
 		self._logger.info("Hello World!!! (more: %s)" % self._settings.get(["url"]))
 
 	def get_settings_defaults(self):
-		 GPIO.output(26, True)
 		return dict(url="https://en.wikipedia.org/wiki/Hello_world")
 
 	def get_template_configs(self):
