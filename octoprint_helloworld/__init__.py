@@ -1,13 +1,8 @@
 # coding=utf-8
-
 from __future__ import absolute_import
 
 import octoprint.plugin
-import RPi.GPIO as GPIO    # Import Raspberry Pi GPIO library
-from time import sleep     # Import the sleep function from the time module
-GPIO.setwarnings(False)    # Ignore warning for now
-GPIO.setmode(GPIO.BOARD)   # Use physical pin numbering
-GPIO.setup(26, GPIO.OUT, initial=GPIO.LOW)   # Set pin 8 to be an output pin and set initial value to low (off)
+
 class HelloWorldPlugin(octoprint.plugin.StartupPlugin,
                        octoprint.plugin.TemplatePlugin,
                        octoprint.plugin.SettingsPlugin,
@@ -31,9 +26,6 @@ class HelloWorldPlugin(octoprint.plugin.StartupPlugin,
 			less=["less/helloworld.less"]
 		)
 
-	
-
-	
 __plugin_name__ = "Hello World"
 __plugin_pythoncompat__ = ">=2.7,<4"
 __plugin_implementation__ = HelloWorldPlugin()
