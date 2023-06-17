@@ -20,6 +20,8 @@ class HelloWorldPlugin(octoprint.plugin.StartupPlugin,
 		GPIO.setwarnings(False)
 		GPIO.setup(26, GPIO.OUT)
 		self._gpioup = 1
+		GPIO.output(26, True)
+		
 	
 		
 		
